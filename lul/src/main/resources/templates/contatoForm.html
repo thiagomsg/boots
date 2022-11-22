@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+<h1>Formulario de Contatos</h1>
+<form action="#" th:action="@{/process}" th:object="${contato}" method="post">
+    Nome: <input type="text" th:field="*{nome}">
+    <span th:if="${#fields.hasErrors('nome')}"
+          th:errors="*{nome}"></span><br>
+    Numero: <input type="number" th:field="*{numero}">
+    <span th:if="${#fields.hasErrors('numero')}"
+          th:errors="*{numero}"></span><br>
+    Email: <input type="email" th:field="*{email}"/>
+    <span th:if="${#fields.hasErrors('email')}"
+          th:errors="*{email}"></span><br>
+    <input type="submit" value="Enviar">
+
+</form>
+</body>
+</html>

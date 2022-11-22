@@ -1,0 +1,18 @@
+
+.link-botao{
+  color: white;
+  text-decoration: none;
+}
+
+.link-botao:hover{
+  color: white;
+  text-decoration: none;
+}
+
+.table-head{
+    text-align: center;
+}
+
+.table-content{
+    text-align: center;
+}

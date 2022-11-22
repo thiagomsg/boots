@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda Web</title>
+    <link href="../static/lista.css" type="text/css" th:href="@{/lista.css}"  rel="stylesheet">
+    <link href="../static/base.css" type="text/css" th:href="@{/base.css}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+
+<h1>Lista de Contatos</h1>
+
+<div th:switch="${#lists.isEmpty(contatos)}">
+    <div th:case="true">Sem contatos ainda!</div>
+    <div th:case="*">
+        <h2>Contatos</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="table-light">
+            <tr>
+                <th class="table-head">Nome</th>
+                <th class="table-head">Numero</th>
+                <th class="table-head">Email</th>
+                <th class="table-head">Editar</th>
+                <th class="table-head">Deletar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="contato : ${contatos}">
+                <td class="table-content" th:text="${contato.nome}"></td>
+                <td class="table-content" th:text="${contato.numero}"></td>
+                <td class="table-content" th:text="${contato.email}"></td>
+                <td class="table-content"><button type="button" class="btn btn-primary"><a class="link-botao" th:href="@{/edit/{id}(id=${contato.id})}">Editar</a></button></td>
+                <td class="table-content"><button type="button" class="btn btn-danger"><a class="link-botao" th:href="@{/delete/{id}(id=${contato.id})}">Deletar</a></button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/add">Adicionar novo contato</a></p>
+</th:block>
+
+    <div th:replace="base :: footer"></div>
+</div>
+</body>
+</html>

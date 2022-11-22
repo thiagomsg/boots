@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:fragment="headCust">
+  <meta charset="UTF-8">
+  <title>Agenda Web</title>
+  <meta name="viewport" content="width=device=width, initial-scale1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="../static/base.css" type="text/css" th:href="@{/base.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar" style="background-color: #e3f2fd;" th:fragment="navlinks">
+  <ul class="nav justify-content-center">
+    <li>
+      <div class="container">
+        <div class="image">
+          <img src="../static/contact-svgrepo-com.svg" th:src="@{/contact-svgrepo-com.svg}">
+        </div>
+        <div class="text">
+          <h3 class="app-name">Agenda Web</h3>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="link-nav active" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="link-nav" href="/add">Novo contato</a>
+    </li>
+  </ul>
+</nav>
+<div th:fragment="footer" style="margin-top: 5px">
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Todos os direitos reservados &#169 2022</h6>
+      <p class="card-text">Visita a nossa página em <a href="https://google.com" target="_blank">google</a></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
